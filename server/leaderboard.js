@@ -16,7 +16,7 @@ Meteor.methods({
         createdBy: currentUserId
       });
     } else {
-      alert(playerNameVar + " already exists!");
+      // alert(playerNameVar + " already exists!");
     }
   },
   'removePlayerData': function(selectedPlayer) {

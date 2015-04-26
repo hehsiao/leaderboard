@@ -50,11 +50,15 @@ Template.addPlayerForm.events({
     event.preventDefault();
     var playerNameVar = event.target.playerName.value;
     var playerPoints = event.target.playerScore.value;
-
+    playerPoints = playerPoints > 0 ? playerPoints : 0;
     event.target.playerName.value = "";
     event.target.playerScore.value = "";
-
-    Meteor.call('addPlayer', playerNameVar, playerPoints);
-    Meteor.call('sendLogMessage');
+    if (playerNameVar) {
+      Meteor.call('addPlayer', playerNameVar, playerPoints);
+      Meteor.call('sendLogMessage');
+    }
+    else {
+      alert("Player Name is empty");
+    }
   }
 });
